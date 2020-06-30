@@ -1,8 +1,11 @@
 package threads;
 
+import org.apache.log4j.Logger;
+
 public class RunnableThread implements Runnable {
-    private int[] num;
-    private int limit;
+    private static final Logger LOGGER = Logger.getLogger(RunnableThread.class);
+    private final int[] num;
+    private final int limit;
 
     public RunnableThread(int[] num, int limit) {
         this.num = num;
@@ -13,7 +16,7 @@ public class RunnableThread implements Runnable {
     public void run() {
         while (true) {
             if (num[0] < limit) {
-                System.out.println("Runnable: " + num[0]++);
+                LOGGER.info("Thread: " + num[0]++);
             } else {
                 break;
             }

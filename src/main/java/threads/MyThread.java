@@ -1,8 +1,11 @@
 package threads;
 
+import org.apache.log4j.Logger;
+
 public class MyThread extends Thread {
-    private int[] num;
-    private int limit;
+    private static final Logger LOGGER = Logger.getLogger(MyThread.class);
+    private final int[] num;
+    private final int limit;
 
     public MyThread(int[] num,int limit) {
         this.num = num;
@@ -12,7 +15,7 @@ public class MyThread extends Thread {
     public void run() {
         while (true) {
             if (num[0] < limit) {
-                System.out.println("Thread: " + num[0]++);
+                LOGGER.info("Thread: " + num[0]++);
             } else {
                 break;
             }
