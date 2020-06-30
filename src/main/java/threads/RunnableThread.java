@@ -15,13 +15,9 @@ public class RunnableThread implements Runnable {
 
     @Override
     public void run() {
-        while (true) {
-            if (num.getValue() < limit) {
+        while (num.getValue() < limit) {
                 LOGGER.info("Thread: " + num.getValue());
                 num.increment();
-            } else {
-                break;
-            }
         }
     }
 }
